@@ -82,6 +82,7 @@ class MainWindow(QMainWindow):
 
         self.resetForm()
     
+    # clean input data from form
     def resetForm(self):
         self.name.clear()
         self.type.clear()
