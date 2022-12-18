@@ -7,8 +7,9 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
 
-        iLayout = QVBoxLayout()
+        fLayout = QVBoxLayout()
         sLayout = QHBoxLayout()
+        tLayout = QVBoxLayout()
         layout = QHBoxLayout()
         self.date = QDateEdit()
         self.date.setCalendarPopup(True)
@@ -31,14 +32,14 @@ class MainWindow(QMainWindow):
         form.addRow("type", self.type)
         form.addRow("cost", self.cost)
         
-        iLayout.addLayout(sLayout)
-        iLayout.addLayout(form)
+        fLayout.addLayout(sLayout)
+        fLayout.addLayout(form)
         
         self.result = QLabel()
         button = QPushButton("Add")
         button.pressed.connect(self.add_data)
-        iLayout.addWidget(self.result)
-        iLayout.addWidget(button)
+        fLayout.addWidget(self.result)
+        fLayout.addWidget(button)
         
         self.table = QTableWidget()
         self.table.setColumnCount(5)
@@ -50,15 +51,14 @@ class MainWindow(QMainWindow):
 
         self.table.setHorizontalHeaderLabels(["Date", "Cost Name", "Cost Type", "Cost", "Delete"])
 
-
-        layout.addWidget(self.table)
-        layout.addLayout(iLayout)
-
         self.submit = QPushButton("Submit")
-        layout.addWidget(self.submit)
+        tLayout.addWidget(self.table)
+        tLayout.addWidget(self.submit)
 
+        layout.addLayout(tLayout)
+        layout.addLayout(fLayout)
 
-
+        
 
 
         widget = QWidget()
@@ -101,7 +101,7 @@ class MainWindow(QMainWindow):
     # function to submit data to mongodb.
     # need to call mongo helper
     # change the fomat of date, may need to set primary key before submit data
-    def submit(self):
+    def submitData(self):
         
         pass
 
