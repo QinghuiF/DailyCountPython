@@ -54,6 +54,9 @@ class MainWindow(QMainWindow):
         layout.addWidget(self.table)
         layout.addLayout(iLayout)
 
+        self.submit = QPushButton("Submit")
+        layout.addWidget(self.submit)
+
 
 
 
@@ -92,6 +95,15 @@ class MainWindow(QMainWindow):
     def delete(self):
         row = self.table.currentRow()
         self.table.removeRow(row)
+
+
+
+    # function to submit data to mongodb.
+    # need to call mongo helper
+    # change the fomat of date, may need to set primary key before submit data
+    def submit(self):
+        
+        pass
 
 
 
