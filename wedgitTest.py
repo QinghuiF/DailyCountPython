@@ -87,6 +87,7 @@ class MainWindow(QMainWindow):
         self.type.clear()
         self.cost.clear()
     
+    # functions for delete button
     def delete(self):
         row = self.table.currentRow()
         self.table.removeRow(row)
